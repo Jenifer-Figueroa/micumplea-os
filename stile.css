@@ -1,6 +1,6 @@
 html, body {
     height: 100%;
-    margin: 0;
+    
     padding: 0;
     /* min-height: 2000px; - Eliminado para simplificar la altura */
 align-items: center;
@@ -12,7 +12,7 @@ align-items: center;
     flex-direction: column; /* Esto APILA los elementos: circulo, frase, fecha, contador, ubicacion */
     flex-grow: 1;
     align-items: center; /* Centra horizontalmente todos los elementos */
-    width: 80%;
+    width: 85%;
     position: relative; /* Importante para el z-index */
     z-index: 10; /* Asegura que el contenido esté sobre el fondo */
     padding-top: 20px; /* Pequeño espacio superior */
@@ -63,6 +63,12 @@ align-items: center;
     max-width: 400px; /* Limita el ancho para que no sea excesivo en pantallas grandes */
     margin-top: 30px; /* Espacio superior */
     margin-bottom: 30px; /* Espacio inferior */
+    background-image: url(image/deco.gif);
+}
+
+.contador a{
+    text-shadow: 2px 2px 10px #000000;
+ 
 }
 
 
@@ -106,4 +112,45 @@ align-items: center;
 }
 .frase p {
     font-size: 1.1em;
+}
+
+.boton-ubicacion{
+    /* Diseño del botón */
+    display: inline-block; /* Para que tome el tamaño exacto del contenido */
+    padding: 12px 25px; /* Relleno interior para hacerlo más grande */
+    border-radius: 30px; /* Esquinas ligeramente redondeadas */
+    
+    /* Colores y tipografía */
+    background-color: #FF00FF; /* Fondo en color rosa oscuro (ej. de las flores) */
+    color: #FFFFFF; /* Texto blanco para un alto contraste */
+    text-decoration: none; /* Elimina el subrayado por defecto de los enlaces */
+    font-size: 16px; /* Tamaño del texto */
+    
+    text-shadow: 2px 2px 10px #000000;
+    font-weight: bold;
+   
+    
+    /* Sombreado para que resalte (opcional) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+    
+    /* Efecto al pasar el ratón (opcional) */
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+}
+.boton-ubicacion a{
+    text-decoration: none;
+    color: #181515;
+}
+
+.boton-ubicacion:hover {
+    background-color: #A62953; /* Un rosa un poco más oscuro al tocar */
+}
+
+.ubicacion img{
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+
+h1{
+    color: #fd0000;
 }
