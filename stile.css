@@ -1,0 +1,109 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* min-height: 2000px; - Eliminado para simplificar la altura */
+align-items: center;
+}
+
+/* 1. Contenedor principal para apilar el contenido */
+.flex-container{
+    display: flex;
+    flex-direction: column; /* Esto APILA los elementos: circulo, frase, fecha, contador, ubicacion */
+    flex-grow: 1;
+    align-items: center; /* Centra horizontalmente todos los elementos */
+    width: 80%;
+    position: relative; /* Importante para el z-index */
+    z-index: 10; /* Asegura que el contenido esté sobre el fondo */
+    padding-top: 20px; /* Pequeño espacio superior */
+    padding-bottom: 20px; /* Pequeño espacio inferior */
+    margin: 30px;
+    
+}
+
+/* 2. Estilos del Video de Fondo (No Cambiados) */
+.video-background-contenedor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    z-index: -100; /* Lo mantiene detrás de todo */
+}
+
+.background-video {
+    min-width: 90%; 
+    min-height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -100; 
+}
+
+/* 3. Estilos del Contador (CRÍTICO) */
+.contador{
+    /* Las propiedades position: absolute; y top: 136%; FUERON ELIMINADAS. */
+    /* Ahora Flexbox lo coloca en orden. */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%; /* El 100% de los 80% del flex-container */
+    max-width: 400px; /* Limita el ancho para que no sea excesivo en pantallas grandes */
+    margin-top: 30px; /* Espacio superior */
+    margin-bottom: 30px; /* Espacio inferior */
+}
+
+
+/* Estilos de Imagenes y texto (Menores ajustes) */
+.circulo {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.circulo img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.circulo img, .fecha img {
+    max-width: 100%; /* CRÍTICO: La imagen NUNCA será más grande que su contenedor. */
+    height: auto;
+}
+
+.fecha{
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    height: 100%;
+}
+.frase {
+    /* Añade algo de padding para que el texto respire */
+    padding: 20px;
+    text-align: center;
+    color: #fff; /* Suponiendo que el fondo es oscuro y necesitas texto claro */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para la legibilidad */
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.frase p {
+    font-size: 1.1em;
+}
